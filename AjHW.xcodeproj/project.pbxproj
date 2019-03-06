@@ -17,6 +17,8 @@
 		ACDE451A222EB0D600C174A4 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE4519222EB0D600C174A4 /* APIManager.swift */; };
 		ACDE451C222EB67200C174A4 /* ShowInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE451B222EB67200C174A4 /* ShowInfoController.swift */; };
 		ACDE451E222EB6DB00C174A4 /* ShowInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE451D222EB6DB00C174A4 /* ShowInfoCell.swift */; };
+		ACDE45202230045C00C174A4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE451F2230045C00C174A4 /* TabBarController.swift */; };
+		ACDE452222300CC700C174A4 /* FavoriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE452122300CC700C174A4 /* FavoriteController.swift */; };
 		D3032CB6F4969C6DBC842079 /* Pods_AjHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E72E6E7CE069C043F1CF07E /* Pods_AjHW.framework */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +38,8 @@
 		ACDE4519222EB0D600C174A4 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		ACDE451B222EB67200C174A4 /* ShowInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoController.swift; sourceTree = "<group>"; };
 		ACDE451D222EB6DB00C174A4 /* ShowInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoCell.swift; sourceTree = "<group>"; };
+		ACDE451F2230045C00C174A4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		ACDE452122300CC700C174A4 /* FavoriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,17 +75,19 @@
 		ACDE44FF222D6C9A00C174A4 /* AjHW */ = {
 			isa = PBXGroup;
 			children = (
+				ACDE4517222EB01900C174A4 /* Secret.swift */,
+				ACDE4519222EB0D600C174A4 /* APIManager.swift */,
 				ACDE4500222D6C9A00C174A4 /* AppDelegate.swift */,
 				ACDE4515222E454400C174A4 /* Photo.swift */,
 				ACDE4502222D6C9A00C174A4 /* MainController.swift */,
 				ACDE451B222EB67200C174A4 /* ShowInfoController.swift */,
 				ACDE451D222EB6DB00C174A4 /* ShowInfoCell.swift */,
-				ACDE450A222D6C9D00C174A4 /* Assets.xcassets */,
+				ACDE452122300CC700C174A4 /* FavoriteController.swift */,
+				ACDE451F2230045C00C174A4 /* TabBarController.swift */,
 				ACDE450C222D6C9D00C174A4 /* LaunchScreen.storyboard */,
-				ACDE450F222D6C9D00C174A4 /* Info.plist */,
 				ACDE4507222D6C9A00C174A4 /* AjHW.xcdatamodeld */,
-				ACDE4517222EB01900C174A4 /* Secret.swift */,
-				ACDE4519222EB0D600C174A4 /* APIManager.swift */,
+				ACDE450F222D6C9D00C174A4 /* Info.plist */,
+				ACDE450A222D6C9D00C174A4 /* Assets.xcassets */,
 			);
 			path = AjHW;
 			sourceTree = "<group>";
@@ -219,7 +225,9 @@
 				ACDE451A222EB0D600C174A4 /* APIManager.swift in Sources */,
 				ACDE4516222E454400C174A4 /* Photo.swift in Sources */,
 				ACDE451E222EB6DB00C174A4 /* ShowInfoCell.swift in Sources */,
+				ACDE45202230045C00C174A4 /* TabBarController.swift in Sources */,
 				ACDE4518222EB01900C174A4 /* Secret.swift in Sources */,
+				ACDE452222300CC700C174A4 /* FavoriteController.swift in Sources */,
 				ACDE4509222D6C9A00C174A4 /* AjHW.xcdatamodeld in Sources */,
 				ACDE4503222D6C9A00C174A4 /* MainController.swift in Sources */,
 				ACDE451C222EB67200C174A4 /* ShowInfoController.swift in Sources */,
