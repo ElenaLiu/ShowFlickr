@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		ACDE4501222D6C9A00C174A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE4500222D6C9A00C174A4 /* AppDelegate.swift */; };
-		ACDE4503222D6C9A00C174A4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE4502222D6C9A00C174A4 /* ViewController.swift */; };
+		ACDE4503222D6C9A00C174A4 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE4502222D6C9A00C174A4 /* MainController.swift */; };
 		ACDE4509222D6C9A00C174A4 /* AjHW.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACDE4507222D6C9A00C174A4 /* AjHW.xcdatamodeld */; };
 		ACDE450B222D6C9D00C174A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACDE450A222D6C9D00C174A4 /* Assets.xcassets */; };
 		ACDE450E222D6C9D00C174A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACDE450C222D6C9D00C174A4 /* LaunchScreen.storyboard */; };
-		ACDE4516222E454400C174A4 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE4515222E454400C174A4 /* Photos.swift */; };
+		ACDE4516222E454400C174A4 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE4515222E454400C174A4 /* Photo.swift */; };
+		ACDE4518222EB01900C174A4 /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE4517222EB01900C174A4 /* Secret.swift */; };
+		ACDE451A222EB0D600C174A4 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE4519222EB0D600C174A4 /* APIManager.swift */; };
+		ACDE451C222EB67200C174A4 /* ShowInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE451B222EB67200C174A4 /* ShowInfoController.swift */; };
+		ACDE451E222EB6DB00C174A4 /* ShowInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDE451D222EB6DB00C174A4 /* ShowInfoCell.swift */; };
 		D3032CB6F4969C6DBC842079 /* Pods_AjHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E72E6E7CE069C043F1CF07E /* Pods_AjHW.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,12 +26,16 @@
 		9324A8DFC6DB6011FD2EB2B0 /* Pods-AjHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AjHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AjHW/Pods-AjHW.debug.xcconfig"; sourceTree = "<group>"; };
 		ACDE44FD222D6C9A00C174A4 /* AjHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AjHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACDE4500222D6C9A00C174A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ACDE4502222D6C9A00C174A4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		ACDE4502222D6C9A00C174A4 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		ACDE4508222D6C9A00C174A4 /* AjHW.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AjHW.xcdatamodel; sourceTree = "<group>"; };
 		ACDE450A222D6C9D00C174A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ACDE450D222D6C9D00C174A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACDE450F222D6C9D00C174A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACDE4515222E454400C174A4 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		ACDE4515222E454400C174A4 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		ACDE4517222EB01900C174A4 /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		ACDE4519222EB0D600C174A4 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		ACDE451B222EB67200C174A4 /* ShowInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoController.swift; sourceTree = "<group>"; };
+		ACDE451D222EB6DB00C174A4 /* ShowInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowInfoCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,12 +72,16 @@
 			isa = PBXGroup;
 			children = (
 				ACDE4500222D6C9A00C174A4 /* AppDelegate.swift */,
-				ACDE4515222E454400C174A4 /* Photos.swift */,
-				ACDE4502222D6C9A00C174A4 /* ViewController.swift */,
+				ACDE4515222E454400C174A4 /* Photo.swift */,
+				ACDE4502222D6C9A00C174A4 /* MainController.swift */,
+				ACDE451B222EB67200C174A4 /* ShowInfoController.swift */,
+				ACDE451D222EB6DB00C174A4 /* ShowInfoCell.swift */,
 				ACDE450A222D6C9D00C174A4 /* Assets.xcassets */,
 				ACDE450C222D6C9D00C174A4 /* LaunchScreen.storyboard */,
 				ACDE450F222D6C9D00C174A4 /* Info.plist */,
 				ACDE4507222D6C9A00C174A4 /* AjHW.xcdatamodeld */,
+				ACDE4517222EB01900C174A4 /* Secret.swift */,
+				ACDE4519222EB0D600C174A4 /* APIManager.swift */,
 			);
 			path = AjHW;
 			sourceTree = "<group>";
@@ -184,10 +196,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-AjHW/Pods-AjHW-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,9 +216,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ACDE4516222E454400C174A4 /* Photos.swift in Sources */,
+				ACDE451A222EB0D600C174A4 /* APIManager.swift in Sources */,
+				ACDE4516222E454400C174A4 /* Photo.swift in Sources */,
+				ACDE451E222EB6DB00C174A4 /* ShowInfoCell.swift in Sources */,
+				ACDE4518222EB01900C174A4 /* Secret.swift in Sources */,
 				ACDE4509222D6C9A00C174A4 /* AjHW.xcdatamodeld in Sources */,
-				ACDE4503222D6C9A00C174A4 /* ViewController.swift in Sources */,
+				ACDE4503222D6C9A00C174A4 /* MainController.swift in Sources */,
+				ACDE451C222EB67200C174A4 /* ShowInfoController.swift in Sources */,
 				ACDE4501222D6C9A00C174A4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
