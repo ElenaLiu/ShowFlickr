@@ -14,7 +14,11 @@ class FavoriteController: UICollectionViewController, UICollectionViewDelegateFl
     // MARK: Properties
     let space: CGFloat = 5
     
-    var photos: [photo] = []
+    var favorities: [FavoritePhoto] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -27,28 +31,44 @@ class FavoriteController: UICollectionViewController, UICollectionViewDelegateFl
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         self.collectionView.backgroundColor = .white
+        
         // Register cell classes
         self.collectionView!.register(ShowInfoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        favorities = CoreDataManager.shared.fetchFavorites() ?? []
     }
     
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.photos.count
+        return self.favorities.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ShowInfoCell
         
         // Configure the cell
-        cell.setImage(photos[indexPath.row].imageURLString)
-        cell.setTitle(photos[indexPath.row].title)
+        cell.favoriteBtn.isSelected = true
+        cell.delegate = self
+        cell.setImage(favorities[indexPath.row].imageURLString ?? "")
+        cell.setTitle(favorities[indexPath.row].title ?? "")
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (self.view.frame.width - self.space*3)/2, height: self.view.frame.width/2)
+    }
+}
+
+extension FavoriteController: ShowInfoCellDelegate {
+    func updatedData() {
+        self.favorities = CoreDataManager.shared.fetchFavorites() ?? []
+        self.collectionView.reloadData()
     }
 }
 

@@ -15,8 +15,13 @@ class ShowInfoController: UICollectionViewController, UICollectionViewDelegateFl
     let space: CGFloat = 5
     var photoResponse: Photos? = nil {
         didSet {
+            let favorites = CoreDataManager.shared.fetchFavorites() ?? []
+            let urls = favorites.compactMap { $0.imageURLString }
+            
             photoResponse?.photo.forEach({ (photo) in
-                self.photos.append(photo)
+                var newPhoto = photo
+                newPhoto.isFavorite = urls.contains(photo.imageURLString)
+                self.photos.append(newPhoto)
             })
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
@@ -56,6 +61,10 @@ class ShowInfoController: UICollectionViewController, UICollectionViewDelegateFl
         self.collectionView!.register(ShowInfoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -68,6 +77,7 @@ class ShowInfoController: UICollectionViewController, UICollectionViewDelegateFl
         // Configure the cell
         cell.setImage(photos[indexPath.row].imageURLString)
         cell.setTitle(photos[indexPath.row].title)
+        cell.favoriteBtn.isSelected = photos[indexPath.row].isFavorite ?? false
         return cell
     }
     

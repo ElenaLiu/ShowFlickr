@@ -28,4 +28,5 @@ struct photo: Codable {
     var imageURLString: String {
         return "https://farm\(farm).staticflickr.com/\(server)/\(id)_\(secret)_m.jpg"
     }
+    var isFavorite: Bool?
 }

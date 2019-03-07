@@ -10,8 +10,17 @@ import UIKit
 import SDWebImage
 import SnapKit
 
+protocol ShowInfoCellDelegate: class {
+    func updatedData()
+}
 class ShowInfoCell: UICollectionViewCell {
     // MARK: Properties
+    var urlString: String = ""
+    
+    var title: String = ""
+    
+    weak var delegate: ShowInfoCellDelegate?
+    
     private let titleLabel: UILabel = {
         let lb = UILabel(frame: .zero)
         lb.textAlignment = .center
@@ -74,16 +83,27 @@ class ShowInfoCell: UICollectionViewCell {
     
     @objc private func favoriteTapped() {
         favoriteBtn.isSelected = !favoriteBtn.isSelected
+        if favoriteBtn.isSelected {
+            //save
+            CoreDataManager.shared.createFavorite(urlString, title)
+            delegate?.updatedData()
+        } else {
+           //delete
+            CoreDataManager.shared.deleteFavorite(urlString)
+            delegate?.updatedData()
+        }
     }
     
     func setImage(_ string: String) {
         guard let url = URL(string: string) else {
             return
         }
+        self.urlString = string
         self.imageView.sd_setImage(with: url, completed: nil)
     }
     
     func setTitle(_ text: String) {
+        self.title = text
         self.titleLabel.text = text
     }
 }
