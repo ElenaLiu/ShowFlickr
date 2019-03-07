@@ -38,6 +38,7 @@ class MainController: UIViewController {
         tf.placeholder = "  每頁呈現數量"
         tf.textColor = #colorLiteral(red: 0.05882352963, green: 0.180392161, blue: 0.2470588237, alpha: 1)
         tf.layer.cornerRadius = 10
+        tf.keyboardType = .numberPad
         tf.addTarget(self, action: #selector(textChanged), for: .editingChanged)
         tf.setLeftPaddingPoints(10)
         tf.setRightPaddingPoints(10)
@@ -66,7 +67,10 @@ class MainController: UIViewController {
         guard let text = contentTextField.text,
             let perPage = Int(numberTextField.text ?? "") else { return }
 
-        self.navigationController?.pushViewController(TabBarController(text: text, perPage: perPage), animated: true)
+        self.navigationController?.pushViewController(
+            TabBarController(text: text.trimmingCharacters(in: .whitespaces),
+                             perPage: perPage),
+            animated: true)
     }
     
     private func setupView() {

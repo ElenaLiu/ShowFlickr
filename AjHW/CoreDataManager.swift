@@ -12,7 +12,10 @@ import CoreData
 class CoreDataManager {
     static let shared = CoreDataManager()
     
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var appDelegate: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    
     lazy var managedContext = appDelegate.persistentContainer.viewContext
     
     func createFavorite(_ urlString: String, _ title: String) {

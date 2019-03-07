@@ -15,6 +15,7 @@ protocol ShowInfoCellDelegate: class {
 }
 class ShowInfoCell: UICollectionViewCell {
     // MARK: Properties
+    static let notification = "update"
     var urlString: String = ""
     
     var title: String = ""
@@ -47,6 +48,11 @@ class ShowInfoCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        NotificationCenter.default.addObserver(self,
+                                       selector: #selector(updateFavoriteStatus),
+                                       name: NSNotification.Name(rawValue: ShowInfoCell.notification),
+                                       object: nil)
+        
         setupViews()
     }
     
@@ -56,6 +62,14 @@ class ShowInfoCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         imageView.image = nil
+    }
+    
+    @objc private func updateFavoriteStatus(notifictation: Notification) {
+        if let status = notifictation.object as? (String, Bool) {
+            if status.0 == urlString {
+                self.favoriteBtn.isSelected = status.1
+            }
+        }
     }
     
     private func setupViews() {
@@ -92,6 +106,9 @@ class ShowInfoCell: UICollectionViewCell {
             CoreDataManager.shared.deleteFavorite(urlString)
             delegate?.updatedData()
         }
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShowInfoCell.notification),
+                                        object: (urlString, favoriteBtn.isSelected))
     }
     
     func setImage(_ string: String) {
