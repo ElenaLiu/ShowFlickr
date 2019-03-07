@@ -7,9 +7,11 @@
 //
 
 import Foundation
+
 struct PhotoResponse: Codable {
     let photos: Photos
 }
+
 struct Photos: Codable {
     let page: Int
     let pages: Int

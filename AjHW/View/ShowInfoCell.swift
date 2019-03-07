@@ -13,6 +13,7 @@ import SnapKit
 protocol ShowInfoCellDelegate: class {
     func updatedData()
 }
+
 class ShowInfoCell: UICollectionViewCell {
     // MARK: Properties
     static let notification = "update"

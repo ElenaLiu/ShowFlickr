@@ -12,14 +12,10 @@ import CoreData
 class CoreDataManager {
     static let shared = CoreDataManager()
     
-    var appDelegate: AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
-    
-    lazy var managedContext = appDelegate.persistentContainer.viewContext
-    
     func createFavorite(_ urlString: String, _ title: String) {
-
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
         let photo = FavoritePhoto(context: managedContext)
         photo.title = title
         photo.imageURLString = urlString
@@ -29,12 +25,17 @@ class CoreDataManager {
     }
     
     func fetchFavorites() -> [FavoritePhoto]? {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
         
         return try? managedContext.fetch(FavoritePhoto.fetchRequest())
         
     }
     
     func deleteFavorite(_ urlString: String) {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "FavoritePhoto")
         fetchRequest.predicate = NSPredicate(format: "imageURLString = %@", urlString)
         
@@ -45,8 +46,8 @@ class CoreDataManager {
             
             appDelegate.saveContext()
             
-        }catch (let error) {
-            print("deleteFavorite error ", error.localizedDescription)
+        } catch (let error) {
+            print("DeleteFavorite error ", error.localizedDescription)
         }
     }
 }

@@ -77,22 +77,30 @@
 		ACDE44FF222D6C9A00C174A4 /* AjHW */ = {
 			isa = PBXGroup;
 			children = (
-				ACDE4517222EB01900C174A4 /* Secret.swift */,
-				ACDE4519222EB0D600C174A4 /* APIManager.swift */,
+				ACDE4529223159A100C174A4 /* View */,
 				ACDE4500222D6C9A00C174A4 /* AppDelegate.swift */,
+				ACDE4519222EB0D600C174A4 /* APIManager.swift */,
 				ACDE452522313CAC00C174A4 /* CoreDataManager.swift */,
 				ACDE4515222E454400C174A4 /* Photo.swift */,
-				ACDE4502222D6C9A00C174A4 /* MainController.swift */,
-				ACDE451B222EB67200C174A4 /* ShowInfoController.swift */,
-				ACDE451D222EB6DB00C174A4 /* ShowInfoCell.swift */,
-				ACDE452122300CC700C174A4 /* FavoriteController.swift */,
-				ACDE451F2230045C00C174A4 /* TabBarController.swift */,
+				ACDE4517222EB01900C174A4 /* Secret.swift */,
 				ACDE450C222D6C9D00C174A4 /* LaunchScreen.storyboard */,
 				ACDE4507222D6C9A00C174A4 /* AjHW.xcdatamodeld */,
 				ACDE450F222D6C9D00C174A4 /* Info.plist */,
 				ACDE450A222D6C9D00C174A4 /* Assets.xcassets */,
 			);
 			path = AjHW;
+			sourceTree = "<group>";
+		};
+		ACDE4529223159A100C174A4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ACDE4502222D6C9A00C174A4 /* MainController.swift */,
+				ACDE451B222EB67200C174A4 /* ShowInfoController.swift */,
+				ACDE451D222EB6DB00C174A4 /* ShowInfoCell.swift */,
+				ACDE452122300CC700C174A4 /* FavoriteController.swift */,
+				ACDE451F2230045C00C174A4 /* TabBarController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		BABB1B713357BD283D5EF8FE /* Pods */ = {

@@ -11,6 +11,7 @@ import Foundation
 enum ApiResponseError: Error {
     case requestError
     case responseError
+    case decodeError(msg: String)
 }
 
 class APIManager {
@@ -34,21 +35,25 @@ class APIManager {
                 return
             }
             
-            let photos = self.decode(PhotoResponse.self, with: data)
-            completion(photos?.photos, nil)
+            do {
+                let photos = try self.decode(PhotoResponse.self, with: data)
+                completion(photos?.photos, nil)
+            } catch(let error) {
+                completion(nil, error)
+            }
+            
         }
         task.resume()
     }
     
-    private func decode<T: Codable>(_ type: T.Type, with data: Data) -> T? {
+    private func decode<T: Codable>(_ type: T.Type, with data: Data) throws -> T? {
         do {
             let decoder = JSONDecoder()
             
             return try decoder.decode(T.self, from: data)
             
         } catch (let error) {
-            print("Decode failed", error.localizedDescription)
-            return nil
+            throw ApiResponseError.decodeError(msg: error.localizedDescription)
         }
     }
 }

@@ -12,6 +12,7 @@ class TabBarController: UITabBarController {
 
     init(text: String, perPage: Int) {
         super.init(nibName: nil, bundle: nil)
+        
         let firstController = ShowInfoController(text: text, perPage: perPage)
         firstController.tabBarItem = UITabBarItem(tabBarSystemItem: .search, tag: 0)
         

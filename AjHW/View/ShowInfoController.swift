@@ -37,14 +37,21 @@ class ShowInfoController: UICollectionViewController, UICollectionViewDelegateFl
     init(text: String, perPage: Int) {
         self.keyword = text
         self.perPage = perPage
+        
         let layout = UICollectionViewFlowLayout()
         super.init(collectionViewLayout: layout)
         layout.minimumLineSpacing = space
+        
         APIManager.shared.getPhotos(text, perPage) { (photoResponse, error) in
             if let _ = error {
+                DispatchQueue.main.async {
+                    self.showAlert(title: "哎呀！",
+                                   message: "出了一些問題！請再操作一次～",
+                                   okTitle: "只能這樣了！",
+                                   handler: { self.navigationController?.popViewController(animated: true) })
+                }
                 return
             }
-            
             if let photoResponse = photoResponse {
                 self.photoResponse = photoResponse
             }
@@ -55,18 +62,28 @@ class ShowInfoController: UICollectionViewController, UICollectionViewDelegateFl
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Controller Life Cycle
     override func viewDidLoad() {
         self.collectionView.backgroundColor = .white
         // Register cell classes
         self.collectionView!.register(ShowInfoCell.self, forCellWithReuseIdentifier: reuseIdentifier)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    func showAlert(title: String, message: String, okTitle: String, handler: @escaping () -> Void) {
+        
+        let alertController = UIAlertController(title: "\(title)",
+                                                message: "\(message)",
+                                                preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: okTitle, style: .default) { (UIAlertAction) in
+            handler()
+        }
+        
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: UICollectionViewDataSource
-
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.photos.count
     }

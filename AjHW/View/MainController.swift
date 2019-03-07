@@ -50,6 +50,7 @@ class MainController: UIViewController {
         btn.setTitle("搜尋", for: .normal)
         btn.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         btn.isSelected = false
+        btn.isUserInteractionEnabled = false
         btn.addTarget(self, action: #selector(pustTo), for: .touchUpInside)
         return btn
     }()
@@ -93,8 +94,10 @@ class MainController: UIViewController {
     @objc func textChanged(sender: UITextField) {
         if !contentTextField.text!.isEmpty && !numberTextField.text!.isEmpty  {
             self.searchBtn.backgroundColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+            self.searchBtn.isUserInteractionEnabled = true
         } else {
             self.searchBtn.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+            self.searchBtn.isUserInteractionEnabled = false
         }
     }
 }
